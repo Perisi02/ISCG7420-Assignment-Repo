@@ -301,3 +301,58 @@ textarea {
     opacity: 0.5;
     cursor: not-allowed;
 }
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 16px;
+}
+
+.stat-card {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: #fff;
+    padding: 18px;
+}
+
+.stat-card h2 {
+    margin: 0 0 8px;
+    font-size: 34px;
+    color: #222;
+}
+
+.stat-card p {
+    margin: 0;
+    color: #555;
+    font-weight: bold;
+}
+
+.table-select {
+    width: 100%;
+    min-width: 140px;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    padding: 8px;
+    background: #fff;
+    color: #222;
+}
+
+.status-badge {
+    display: inline-block;
+    border-radius: 6px;
+    padding: 5px 8px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.status-badge.booked {
+    border: 1px solid #9fc9a4;
+    background: #f0fff2;
+    color: #235c2b;
+}
+
+.status-badge.cancelled {
+    border: 1px solid #d8a0a0;
+    background: #fff1f1;
+    color: #8a1f1f;
+}
