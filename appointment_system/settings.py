@@ -21,10 +21,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-jm2y(krlfhf*s9v#7u@)_u%u&1tlt%2cf*t$#4mc$rdk1qlx0-'
+SECRET_KEY = os.environ.get(
+    "SECRET_KEY",
+    "django-insecure-jm2y(krlfhf*s9v#7u@)_u%u&1tlt%2cf*t$#4mc$rdk1qlx0-"
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("DEBUG", "True") == "True"
 
 ALLOWED_HOSTS = [
     "localhost",
@@ -134,10 +137,16 @@ CSRF_TRUSTED_ORIGINS = [
     "https://*.vercel.app",
 ]
 
+FRONTEND_URL = os.environ.get("FRONTEND_URL")
+
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://localhost:5173",
 ]
+
+if FRONTEND_URL:
+    CSRF_TRUSTED_ORIGINS.append(FRONTEND_URL)
+    CORS_ALLOWED_ORIGINS.append(FRONTEND_URL)
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
