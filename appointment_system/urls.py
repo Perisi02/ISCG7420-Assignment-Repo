@@ -33,4 +33,6 @@ urlpatterns = [
     ),
 
     path("", include("appointment.urls")),
+
+    path("api/", include("appointment.api_urls")),
 ]
